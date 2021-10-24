@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "need-a-vent"
+  },
+  "targets": {
+    "need-a-vent": {
+      "hosting": {
+        "capstone": [
+          "need-a-vent"
+        ]
+      }
+    }
   }
 }

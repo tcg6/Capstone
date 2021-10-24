@@ -1,19 +1,20 @@
-<div class="col pl-4 pl-lg-1">
-    <form >
+<div>
+    <form [formGroup] ="ventForm" (ngSubmit)="onSubmit()">
       <textarea name="text" placeholder="What's On Your Mind?"
         formControlName="text"></textarea>
 
-      <!-- Only show this if the post length is > 140 -->
-      <!-- <small class="form-text" *ngIf="lengthIsInvalid()">
-        140 character limit!
-      </small> -->
+      <!-- Only show this if the post length is > 300 -->
+      <small class="form-text" *ngIf="lengthIsInvalid()">
+        300 character limit!
+      </small> 
 
       <div class="text-right">
 
         <!-- Disable if invalid post length -->
-        <button>
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Share
+        <button [disabled]="lengthIsInvalid()">
+          <i aria-hidden="true"></i> Share
         </button>
       </div>
     </form>
   </div>
+  

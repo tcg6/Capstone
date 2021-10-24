@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "capstone:build:production",
+            "firebaseProject": "need-a-vent",
+            "firebaseHostingSite": "need-a-vent"
+          }
         }
       }
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Vent } from '../models/vent';
-import { VentService } from '../vent.service';
+import { VentService } from '../services/vent.service';
 
 @Component({
   selector: 'app-vent-box',

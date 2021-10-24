@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Vent } from './models/vent';
+import { Vent } from '../models/vent';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,7 +13,7 @@ export class VentService {
 
   getAllVents(): Observable<Vent[]> {
     return this.afs
-    .collection('vents', ref => ref.orderBy('time', 'desc'))
+    .collection('vents', ref => ref.orderBy('text', 'desc'))
     .valueChanges().pipe(
       map(vents => vents.map( ventObj => new Vent(ventObj) ))
     );
@@ -21,8 +21,7 @@ export class VentService {
 
   public postVent(vent: Vent): void {
     this.afs.collection('vents').add({
-      text: vent.text,
-      time: vent.time
+      text: vent.text
     })
   }
 }

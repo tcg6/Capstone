@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Vent } from '../models/vent';
-import { VentService } from '../vent.service';
+import { UserService } from '../services/user.service';
+import { VentService } from '../services/vent.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,9 +11,9 @@ import { VentService } from '../vent.service';
 })
 export class HomePageComponent implements OnInit {
 
-  public allVents!: Observable<Vent[]>
+  public allVents: Observable<Vent[]>
 
-  constructor(private ventService: VentService) { }
+  constructor(private ventService: VentService, public userService: UserService) { }
 
   ngOnInit(): void {
     this.allVents = this.ventService.getAllVents();

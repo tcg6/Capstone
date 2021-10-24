@@ -1,7 +1,22 @@
-<div class="login">
-    <h2>Sign In</h2>
-
-    <div id="firebaseui-auth-container" class="auth=container">
-        
+<div>
+    <div *ngIf="userService.user$ | async; then authenticated else unauthenticated">
+        <!--This will be filled with the respective template-->
     </div>
+
+    <!--If logged in-->
+    <ng-template #authenticated>
+        <div *ngIf="userService.user$ | async as user">
+            <h3>Hello, Logged in user!</h3>
+            <button (click)="userService.signOut()">Sign Out</button>
+        </div>
+    </ng-template>
+
+    <!--If not logged in-->
+    <ng-template #unauthenticated>
+        <h3>Hello, Guest!</h3>
+        <p>Please login!</p>
+        <button (click)="userService.signInWithGoogle()">
+            <i></i> Log in with Google
+        </button>
+    </ng-template>
 </div>

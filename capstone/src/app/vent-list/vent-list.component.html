@@ -1,7 +1,6 @@
 <div class="container" id="vent-container">
     <div *ngIf="ventList | async; else no_vents">
         <ng-container *ngFor="let vent of ventList | async">
-            <span title="{{vent.time | date:'medium'}}">{{vent.timeFromNow}}</span>
             <div>
                 {{vent.text}}
             </div>

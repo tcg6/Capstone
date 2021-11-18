@@ -1,6 +1,13 @@
 <div>
-    <app-vent-box></app-vent-box>
+    <div *ngIf="userService.user$ | async as user">
+        <h3>Hello, Logged in user!</h3>
+        <button (click)="userService.signOut()">Sign Out</button>
+    </div>
     
+    <div>
+        <app-vent-box></app-vent-box>
+    </div>
+      
     <h2>Current Vents</h2>
     <app-vent-list [ventList]="allVents"></app-vent-list>
 </div>

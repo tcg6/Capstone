@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { VentListComponent } from './vent-list/vent-list.component';
 import { AuthenticationService } from './services/authentication.service';
+import { PersonalComponent } from './personal/personal.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AuthenticationService } from './services/authentication.service';
     HomePageComponent,
     LoginComponent,
     VentListComponent,
+    PersonalComponent,
   ],
   imports: [
     BrowserModule,

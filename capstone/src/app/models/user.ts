@@ -1,14 +1,14 @@
 export class User {
 
-    uid: string;
     email: string;
     photoURL?: string;
     displayName?: string;
+    uid: string;
 
     constructor(userObj: any) {
-        this.uid = userObj.uid;
         this.email = userObj.email;
         this.photoURL = userObj.photoURL;
         this.displayName = userObj.displayName;
+        this.uid = userObj.uid;
     }
 }

@@ -12,7 +12,7 @@ import firebase from '@firebase/app-compat';
 })
 export class UserService {
 
-  user$: Observable<User[]>
+  user$: Observable<User>
 
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) { 
     this.user$ = this.afAuth.authState.pipe(

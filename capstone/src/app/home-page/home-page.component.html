@@ -1,6 +1,6 @@
 <div class="body">
     <div *ngIf="userService.user$ | async as user">
-        <h3>Hello, Logged in user!</h3>
+        <h3>Hello UID: {{ user.uid }}!</h3>
         <button (click)="userService.signOut()">Sign Out</button>
     </div>
     

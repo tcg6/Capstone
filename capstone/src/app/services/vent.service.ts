@@ -12,11 +12,17 @@ export class VentService {
   constructor(private afs: AngularFirestore) { }
 
   getAllVents(): Observable<Vent[]> {
-    return this.afs
-    .collection('vents', ref => ref.orderBy('text', 'desc'))
-    .valueChanges().pipe(
+    return this.afs.collection('vents', ref => ref.orderBy('text', 'desc')).valueChanges()
+    .pipe(
       map(vents => vents.map( ventObj => new Vent(ventObj) ))
     );
+  }
+
+  getVentsByUid(uid: string): Observable<Vent[]> {
+    return this.afs.collection('vents', ref => ref.where('user.uid', '==', uid).orderBy('text', 'desc')).valueChanges()
+    .pipe(
+      map(vents => vents.map( ventObj => new Vent(ventObj)))
+    )
   }
 
   public postVent(vent: Vent): void {

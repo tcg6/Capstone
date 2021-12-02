@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../models/user';
 import { Vent } from '../models/vent';
 import { VentService } from '../services/vent.service';
 
@@ -14,6 +15,8 @@ export class VentBoxComponent implements OnInit {
   constructor(private fb: FormBuilder, private ventService: VentService) { 
     this.createForm();
   }
+
+  @Input() user: User
  
   ngOnInit(): void {
   }
@@ -26,6 +29,7 @@ export class VentBoxComponent implements OnInit {
 
   onSubmit() {
     this.ventService.postVent(new Vent({
+      user: this.user,
       text: this.ventForm.get('text').value
     }))
   }

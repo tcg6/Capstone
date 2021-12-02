@@ -12,7 +12,7 @@ export class VentService {
   constructor(private afs: AngularFirestore) { }
 
   getAllVents(): Observable<Vent[]> {
-    return this.afs.collection('vents', ref => ref.orderBy('text', 'desc')).valueChanges()
+    return this.afs.collection('vents', ref => ref.orderBy('time', 'desc')).valueChanges()
     .pipe(
       map(vents => vents.map( ventObj => new Vent(ventObj) ))
     );
@@ -27,7 +27,9 @@ export class VentService {
 
   public postVent(vent: Vent): void {
     this.afs.collection('vents').add({
-      text: vent.text
+      user: vent.user,
+      text: vent.text,
+      time: vent.time
     })
   }
 }

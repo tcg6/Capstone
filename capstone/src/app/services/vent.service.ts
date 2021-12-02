@@ -27,7 +27,6 @@ export class VentService {
 
   public postVent(vent: Vent): void {
     this.afs.collection('vents').add({
-      user: vent.user,
       text: vent.text,
       time: vent.time
     })

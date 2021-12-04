@@ -3,12 +3,18 @@
 Submission Structure:
 
  app/home-page: Contains all the files necessary to create the home page of the site.
+ 
  app/login: Contains all the files necessary to create the login page for the site.
+ 
  app/models: Contains the files that create a layout for what a User and Vent object can/must be.
+ 
  app/personal: Contains the files for the would-be personal page.
+ 
  app/services: Contains all the files relating to connecting to the database and posting to it, such as creating new users and handling login functions, to posting vents to the database.
+ 
  app/vent-box: Contains the files for creating the text form box that allows you to post to the database.
- app/vent-list: Contains the files for creating the list of all vents inside the database and showing them to you in the form of a list.
+
+app/vent-list: Contains the files for creating the list of all vents inside the database and showing them to you in the form of a list.
 
 !-User Manual-!
 In order to run this project on your own local client, the following steps need to be made:
